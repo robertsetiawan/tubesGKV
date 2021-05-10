@@ -7,6 +7,8 @@
 *.o
 *.obj
 *.win
+*.layout
+*.dev
 
 # Precompiled Headers
 *.gch
