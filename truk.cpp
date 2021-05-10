@@ -58,35 +58,64 @@ void wheel(float x, float y, float z)
 	glPopMatrix();
 }
 
+/*posisi 0 = container paling depan (pertama)
+ukuran container pertama lebih pendek dibanding container dibelakangnya*/
+void container(int posisi, float x, float y, float z) {
+	glPushMatrix();
+		glTranslatef(x, y, z);
+		glPushMatrix();
+	        glTranslatef(0, 2.0, 0.0);
+	        if(posisi == 0){
+	        	glScalef(2.0,1.0,1.0);
+			}else{
+				glScalef(2.5, 1.0, 1.0);
+			}
+	        glutSolidCube(3.0f);
+	    glPopMatrix();
+	    
+	    //atur roda buat container
+	    glScalef(0.65,0.65,0.65);
+	    if(posisi == 0){
+	//        wheel(3.5,0.75,-0.75);
+	//        wheel(3.5,0.75,-4.85); 
+	        wheel(-2.5,0.75,-0.75); //kanan
+	        wheel(-2.5,0.75,-4.85); //kiri
+		}
+		else{
+	    	wheel(4.0,0.75,-0.75); //depan kanan
+	        wheel(4.0,0.75,-4.85); //depan kiri
+	//      wheel(-8.0,0.75,-0.75); 
+	//		wheel(-8.0,0.75,-4.85); 
+			wheel(-3.5,0.75,-0.75); //belakang kanan
+			wheel(-3.5,0.75,-4.85); //belakang kiri
+		}
+    glPopMatrix();
+    
+}
+
+void wheelDepan(float x, float y, float z) {
+	glPushMatrix();
+		glScalef(0.65,0.65,0.65);
+		wheel(x,y,-0.75+z); //wheel kanan
+		wheel(x,y,-4.85+z); //wheel kiri
+	glPopMatrix();
+}
 
 void Truk(float x, float y, float z){
-    //tolong diedit dan dipisah antara truk dan container
-    //wheel depan juga
     //glLoadIdentity();
     glTranslatef(x, y, z);
     glPushMatrix();
-        //container belakang
-        glPushMatrix();
-        glTranslatef(-3.0, 2.0, 0.0);
-        glScalef(2.5, 1.0, 1.0);
-        glutSolidCube(3.0f);
-        glPopMatrix();
-
-        //container depan
-        glPushMatrix();
-        glTranslatef(4.0, 2.0, 0.0);
-        glScalef(2.0, 1.0, 1.0);
-        glutSolidCube(3.0f);
-        glPopMatrix();
-
+    
+    container(0,4,0,0); //depan
+    container(1,-3,0,0); //belakang
         //truck depan
-        /*
-        glPushMatrix();
-        glTranslatef(8.75, 1.7, 0.0);
-        glScalef(1.0, 0.8, 1.0);
-        glutSolidCube(3.0f);
-        glPopMatrix();
-        */
+//        
+//        glPushMatrix();
+//        glTranslatef(8.75, 1.7, 0.0);
+//        glScalef(1.0, 0.8, 1.0);
+//        glutSolidCube(3.0f);
+//        glPopMatrix();
+        
         //depan
         glPushMatrix();
         glTranslatef(8.75,1.7,1.5);
@@ -181,27 +210,12 @@ void Truk(float x, float y, float z){
         glPopMatrix();
 
         glPushMatrix();
-        glScalef(0.65,0.65,0.65);
-        //roda kanan
-        wheel(13.5,0.75,-0.75); //depan kanan
-        wheel(13.5,0.75,-4.85); //belakang kanan
-
-        //roda tengah
-        wheel(6.5,0.75,-0.75); //depan kanan
-        wheel(6.5,0.75,-4.85); //belakang kanan
-        wheel(8.5,0.75,-0.75); //depan kanan
-        wheel(8.5,0.75,-4.85); //belakang kanan
-        wheel(-1.0,0.75,-0.75); //depan kanan
-        wheel(-1.0,0.75,-4.85); //belakang kanan
-
-        //roda kiri
-        wheel(-8.0,0.75,-0.75); //depan kiri
-        wheel(-8.0,0.75,-4.85); //belakang kanan
-        wheel(-6.0,0.75,-0.75); //depan kiri
-        wheel(-6.0,0.75,-4.85); //belakang kanan
+        wheelDepan(13.5,0.75,0);
+        
         glEnd();
         glPopMatrix();
 
     glPopMatrix();
-
 }
+
+
