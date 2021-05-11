@@ -9,6 +9,8 @@
 *.win
 *.layout
 *.dev
+*.depend
+*.cbp
 
 # Precompiled Headers
 *.gch
