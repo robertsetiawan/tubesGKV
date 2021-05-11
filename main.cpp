@@ -30,6 +30,8 @@ float tx=0.0, ty=0.0, tz=0.0; //posisi truk (jgn diubah)
 float deltaMove = 0,h,w;
 int bitmapHeight=12;
 
+int debugCamera = 1; //set ini ke 0, biar kamera ngikutin truk
+
 void Reshape(int w1, int h1){
     // Fungsi reshape
     if(h1 == 0) h1 = 1;
@@ -115,77 +117,97 @@ void display() {
 }
 
 void pressKey(int key, int x, int y) {
+	if(debugCamera == 0){
+		switch (key) {
+	        case GLUT_KEY_LEFT :
+	            //gabisa belok kalo ndak di gas
+	            speedZ = -abs(speedX)*0.25;
+	        break;
+	        case GLUT_KEY_RIGHT :
+	            speedZ = abs(speedX)*0.25;
+	        break;
+	        case GLUT_KEY_UP :
+	            akselerasi = akselerasiDefault;
+	            gasDitekan = true;
+	        break;
+	        case GLUT_KEY_DOWN :
+	            akselerasi = -akselerasiDefault;
+	            gasDitekan = true;
+	        break;
+		}
+	} else {
+		switch (key) {
+			case GLUT_KEY_LEFT : deltaAngle = -0.1f;break;
+	        case GLUT_KEY_RIGHT : deltaAngle = 0.1f;break;
+	        case GLUT_KEY_UP :
+	            deltaMove = 1; gasDitekan = true;
+	            akselerasi = 0;
+	            break;
+	        case GLUT_KEY_DOWN :
+	            deltaMove = -1; gasDitekan = true;
+	            akselerasi = 0;
+	            break;
+		}
     // Fungsi ini akan dijalankan saat tombol keyboard ditekan dan belum dilepas
-    switch (key) {
-        case GLUT_KEY_LEFT :
-            //gabisa belok kalo ndak di gas
-            speedZ = -abs(speedX)*0.25;
-        break;
-        case GLUT_KEY_RIGHT :
-            speedZ = abs(speedX)*0.25;
-        break;
-        case GLUT_KEY_UP :
-            akselerasi = akselerasiDefault;
-            gasDitekan = true;
-        break;
-        case GLUT_KEY_DOWN :
-            akselerasi = -akselerasiDefault;
-            gasDitekan = true;
-        break;
+    
         /*
         //disable atas dan enable ini untuk gerakin kamera only
-        case GLUT_KEY_LEFT : deltaAngle = -0.1f;break;
-        case GLUT_KEY_RIGHT : deltaAngle = 0.1f;break;
-        case GLUT_KEY_UP :
-            deltaMove = 1; gasDitekan = true;
-            akselerasi = 0;
-            break;
-        case GLUT_KEY_DOWN :
-            deltaMove = -1; gasDitekan = true;
-            akselerasi = 0;
-            break;
+        
         */
     }
 }
 
 void releaseKey(int key, int x, int y) {
     // Fungsi ini akan dijalankan saat tekanan tombol keyboard dilepas
-    switch (key) {
-        case GLUT_KEY_LEFT :
-            if (speedZ < 0.0 || deltaAngle < 0){
-                speedZ = 0.0;
-                deltaAngle = 0.0;
-            }
-        break;
-        case GLUT_KEY_RIGHT :
-            if (speedZ > 0.0 || deltaAngle > 0){
-                speedZ = 0.0;
-                deltaAngle = 0.0;
-            }
-        break;
-        case GLUT_KEY_UP :
-            gasDitekan = false;
-        break;
-        case GLUT_KEY_DOWN :
-            gasDitekan = false;
-        break;
-
-        // ganti up dan down diatas dengan bawah untuk kamera only
-        /*case GLUT_KEY_UP :
-            if (deltaMove > 0){
-                deltaMove = 0.0;
-                speedX -= 0.1;
-            }
-            gasDitekan = false;
-        break;
-        case GLUT_KEY_DOWN :
-            if (deltaMove < 0){
-                deltaMove = 0.0;
-            }
-            gasDitekan = false;
-        break;
-        */
-
+    if(debugCamera == 0){
+    	switch (key) {
+	        case GLUT_KEY_LEFT :
+	            if (speedZ < 0.0 || deltaAngle < 0){
+	                speedZ = 0.0;
+	                deltaAngle = 0.0;
+	            }
+	        break;
+	        case GLUT_KEY_RIGHT :
+	            if (speedZ > 0.0 || deltaAngle > 0){
+	                speedZ = 0.0;
+	                deltaAngle = 0.0;
+	            }
+	        break;
+	        case GLUT_KEY_UP :
+	            gasDitekan = false;
+	        break;
+	        case GLUT_KEY_DOWN :
+	            gasDitekan = false;
+	        break;
+		}
+	} else {
+		switch (key) {
+	        case GLUT_KEY_LEFT :
+	            if (speedZ < 0.0 || deltaAngle < 0){
+	                speedZ = 0.0;
+	                deltaAngle = 0.0;
+	            }
+	        break;
+	        case GLUT_KEY_RIGHT :
+	            if (speedZ > 0.0 || deltaAngle > 0){
+	                speedZ = 0.0;
+	                deltaAngle = 0.0;
+	            }
+	        break;
+	        case GLUT_KEY_UP :
+	            if (deltaMove > 0){
+	                deltaMove = 0.0;
+	                speedX -= 0.1;
+	            }
+	            gasDitekan = false;
+	        break;
+	        case GLUT_KEY_DOWN :
+	            if (deltaMove < 0){
+	                deltaMove = 0.0;
+	            }
+	            gasDitekan = false;
+	        break;
+		}
     }
 }
 
