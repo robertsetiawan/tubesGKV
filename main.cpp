@@ -18,6 +18,7 @@
 #include "truk.h"
 #include "lantai.h"
 
+
 float angle=8.0, deltaAngle = 0.0, ratio;
 float speedX = 0.0, speedZ = 0.0; //pergerakan truk
 bool gasDitekan = false;
@@ -27,10 +28,10 @@ float dekselerasi = 0.05;
 float x=-7.0f,y=7.75f,z=-0.35f; // posisi awal kamera
 float lx=1.0f,ly=-0.25f,lz=0.0f; // arah lihat kamera
 float tx=0.0, ty=0.0, tz=0.0; //posisi truk (jgn diubah)
-float deltaMove = 0,h,w;
+float deltaMove = 0,h = 0,w = 0;
 int bitmapHeight=12;
 
-int debugCamera = 0; //set ini ke 0, biar kamera ngikutin truk
+int debugCamera = 1; //set ini ke 0, biar kamera ngikutin truk
 
 void Reshape(int w1, int h1)
 {
@@ -47,6 +48,7 @@ void Reshape(int w1, int h1)
     glLoadIdentity();
     gluLookAt(x, y, z, x + lx,y + ly,z + lz, 0.0f,1.0f,0.0f);
 }
+
 
 void orientMe(float ang)
 {
@@ -132,6 +134,7 @@ void display()
     //printf("\nlx %f, ly %f, lz %f", lx, ly, lz);
     printf("\n speedX: %f gas %d", speedX, gasDitekan);
 }
+
 
 void pressKey(int key, int x, int y)
 {
@@ -293,6 +296,7 @@ int main(int argc, char **argv)
     glutInitWindowPosition(100,100);
     glutInitWindowSize(640,480);
     glutCreateWindow("Truk");
+    glClearColor(0.29f, 0.74f, 0.99f, 1.0f);
     glutIgnoreKeyRepeat(0); // tidak mengabaikan key repeat (saat tombol keyboard dipencet terus)
     glutSpecialFunc(pressKey);
     glutSpecialUpFunc(releaseKey);
