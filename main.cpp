@@ -112,10 +112,14 @@ void display() {
                 putaranTruk -= setirDitekan*1;
                 if (putaranTruk<0){
                     putaranTruk = 360 + putaranTruk;
-                    angleCam += 360;
+                    if (angleCam<360){
+                        angleCam += 360;
+                    }
                 }else if (putaranTruk>360){
                     putaranTruk -= 360;
-                    angleCam -= 360;
+                    if (angleCam>0){
+                        angleCam -= 360;
+                    }
                 }
             }
         }
