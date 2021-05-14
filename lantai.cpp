@@ -215,7 +215,7 @@ void Jalan()
 	//Push jalan 1
 	glPushMatrix();
 	//
-	glTranslatef(-0, 0,0);
+	glTranslatef(0, 0,0);
     
 	//Trotoar dan strip jalan
 	trotoar(100);
