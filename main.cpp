@@ -17,6 +17,7 @@
 
 #include "truk.h"
 #include "lantai.h"
+#include "randomobject.h"
 
 float angle=8.0, deltaAngle = 0.0, ratio;
 float deltaMove = 0,h,w;
@@ -86,6 +87,33 @@ void moveTruk(float putaran, float deltaX){
     tz = tz + (deltaX)*0.1*-sin(putaranTruk*M_PI/180)*(1-abs((90.0-deltaMundur)/-90));
 }
 
+void cekTabrakan(Objek objek) {
+    float oMinX, oMaxX, oMinZ, oMaxZ; //objek min x, objek max x, dll.
+    //jarak dari kaca depan truk ke koordinat ditengah(0,0,0) itu 10.3
+
+    oMinX = objek.getX() - (objek.getSize()/2) - 1.6; //lebar truk 3.2 (kiri 1,6, kanan 1,6);
+    oMaxX = objek.getX() + (objek.getSize()/2) + 1.6;
+    oMinZ = objek.getZ() - (objek.getSize()/2) - 1.6;
+    oMaxZ = objek.getZ() + (objek.getSize()/2) + 1.6;
+
+    //cek collision areanya
+    glPushMatrix();
+    glBegin(GL_POLYGON);
+    glColor3f(1,1,1);
+    glVertex3f(oMaxX,  0, oMinZ);
+    glVertex3f(oMaxX, 0, oMaxZ);
+    glVertex3f(oMinX,  0, oMaxZ);
+    glVertex3f(oMinX, 0, oMinZ);
+
+    glEnd();
+    glPopMatrix();
+
+    if(tx >= oMinX && tx <= oMaxX && tz >= oMinZ && tz <= oMaxZ){
+        printf("\n\n[TABRAKAN] stop...");
+        gasDitekan = 0;
+    }
+}
+
 //gameplay mechanic and renders is done here here
 void display() {
     if (!debugCamera){
@@ -146,9 +174,12 @@ void display() {
     }
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     // Gambar grid
+    Batu rock2(10,2,5,3);
     Jalan();
     // Gambar objek di sini...
     glEnable(GL_LIGHTING);
+    cekTabrakan(rock2);
+
     Truk(putaranTruk, tx, ty, tz);
     glutSwapBuffers();
     glFlush();
