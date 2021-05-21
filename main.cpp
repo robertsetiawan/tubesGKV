@@ -17,8 +17,11 @@
 
 #include "truk.h"
 #include "lantai.h"
+#include "randomobject.h"
 
-float angle=8.0, deltaAngle = 0.0, ratio;
+float angle = 8.0;
+float deltaAngle = 0.0;
+float ratio;
 float deltaMove = 0,h,w;
 int bitmapHeight=12;
 
@@ -38,6 +41,7 @@ float x=22.5f,y=10.0f,z=22.5f; // posisi awal kamera
 float angleCam = 360.0;
 float lx=0.0f,ly=0.0f,lz=-1.0f;
 float tx=0.0, ty=0.0, tz=0.0; //posisi truk (jgn diubah)
+extern float cpDepanX, cpDepanZ, cpBelakangX, cpBelakangZ;//shared global variable collision point
 
 void Reshape(int w1, int h1){
     // Fungsi reshape
@@ -83,7 +87,39 @@ void moveMeFlat(float i){
 void moveTruk(float putaran, float deltaX){
     float deltaMundur = float(abs(180-putaran));
     tx = tx + (deltaX)*0.1*(90.0-deltaMundur)/-90;
-    tz = tz + (deltaX)*0.1*-sin(putaranTruk*M_PI/180)*(1-abs((90.0-deltaMundur)/-90));
+    tz = tz + (deltaX)*0.1*-sin(putaran*M_PI/180)*(1-abs((90.0-deltaMundur)/-90));
+}
+
+void cekTabrakan(Objek objek) {
+    float oMinX, oMaxX, oMinZ, oMaxZ; //objek min x, objek max x, dll.
+    //jarak dari kaca depan truk ke koordinat ditengah(0,0,0) itu 10.3
+
+    oMinX = objek.getX() - (objek.getSize()/2) - 1.6; //lebar truk 3.2 (kiri 1,6, kanan 1,6);
+    oMaxX = objek.getX() + (objek.getSize()/2) + 1.6;
+    oMinZ = objek.getZ() - (objek.getSize()/2) - 1.6;
+    oMaxZ = objek.getZ() + (objek.getSize()/2) + 1.6;
+
+    //cek collision areanya (jangan dihapus buat debug)
+//    glPushMatrix();
+//    glBegin(GL_POLYGON);
+//    glColor3f(1,1,1);
+//    glVertex3f(oMaxX,  0, oMinZ);
+//    glVertex3f(oMaxX, 0, oMaxZ);
+//    glVertex3f(oMinX,  0, oMaxZ);
+//    glVertex3f(oMinX, 0, oMinZ);
+//    glEnd();
+//    glPopMatrix();
+
+    printf("\n cpx: %f, cpz: %f", cpDepanX, cpDepanZ);
+    //cek collision point yang ada di depan truk
+    if(cpDepanX >= oMinX && cpDepanX <= oMaxX && cpDepanZ >= oMinZ && cpDepanZ <= oMaxZ){
+        printf("\n\n[TABRAKAN] stop...");
+    }
+
+    //cek collision point yang ada di belakang truk
+    if(cpBelakangX >= oMinX && cpBelakangX <= oMaxX && cpBelakangZ >= oMinZ && cpBelakangZ <= oMaxZ){
+        printf("\n\n[TABRAKAN] stop...");
+    }
 }
 
 //gameplay mechanic and renders is done here here
@@ -146,9 +182,11 @@ void display() {
     }
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     // Gambar grid
+    Batu rock2(10,2,5,3);
     Jalan();
     // Gambar objek di sini...
     glEnable(GL_LIGHTING);
+    cekTabrakan(rock2);
     Truk(putaranTruk, tx, ty, tz);
     glutSwapBuffers();
     glFlush();

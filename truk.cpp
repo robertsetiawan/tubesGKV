@@ -1,10 +1,15 @@
 #include "common.h"
+#include "truk.h"
 
 //berisi render buat seluruh bagian truk
 //saat ini truk masih jadi satu objek,
 //kalau sempet tolong dipisah
 //jgn lupa untuk semua bagian truk dimasukin
 //ke fungsi display() di main.cpp juga
+
+//redefinition variable collision point
+float cpDepanX, cpDepanZ, cpBelakangX, cpBelakangZ;
+
 
 void wheel(float x, float y, float z)
 {
@@ -101,9 +106,37 @@ void wheelDepan(float x, float y, float z) {
 	glPopMatrix();
 }
 
+
+void collisionBox(float putaran, float tx, float ty, float tz) {
+    putaran = putaran - 90;
+    cpDepanX = tx + -10.0*sin(putaran*M_PI/180);
+    cpDepanZ = tz + -10.0*cos(putaran*M_PI/180);
+
+    cpBelakangX = tx + 5.0*sin(putaran*M_PI/180);
+    cpBelakangZ = tz + 5.0*cos(putaran*M_PI/180);
+
+    //buat visualisasi tempat collisionnya aja
+    //titik nya pas ditengah cube nya (jangan dihapus buat debug)
+//    glPushMatrix();
+//    glColor3f(1,1,1);
+//    glTranslatef(cpDepanX, ty, cpDepanZ);
+//    glRotatef(putaran, 0.0, 1.0, 0.0);
+//    glutSolidCube(3.0f);
+//    glPopMatrix();
+//
+//    glPushMatrix();
+//    glColor3f(1,1,1);
+//    glTranslatef(cpBelakangX, ty, cpBelakangZ);
+//    glRotatef(putaran, 0.0, 1.0, 0.0);
+//    glutSolidCube(3.0f);
+//    glPopMatrix();
+}
+
 void Truk(float putaran, float x, float y, float z){
     //glLoadIdentity();
+    collisionBox(putaran, x, y, z);
     glTranslatef(x, y, z);
+
     glPushMatrix();
     glRotated(putaran, 0.0f, 1.0f, 0.0f);
     container(0,4,0,0); //depan
@@ -119,6 +152,7 @@ void Truk(float putaran, float x, float y, float z){
 
         //depan
         glPushMatrix();
+
         glTranslatef(8.75,1.7,1.5);
         glColor3d(255.0f, 0.0f, 0.0f);
         glBegin(GL_POLYGON);
