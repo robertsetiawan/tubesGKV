@@ -5,6 +5,6 @@ void Jalan();
 void lantai();
 void trotoar(float x);
 void roadsideRight(float x);
-void roadsideLeft(float x)
+void roadsideLeft(float x);
 #endif // LANTAI_H_INCLUDED
 
