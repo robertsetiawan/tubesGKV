@@ -1,10 +1,14 @@
 #include "common.h"
+#include "truk.h"
 
 //berisi render buat seluruh bagian truk
 //saat ini truk masih jadi satu objek,
 //kalau sempet tolong dipisah
 //jgn lupa untuk semua bagian truk dimasukin
 //ke fungsi display() di main.cpp juga
+
+//redefinition variable collision point
+float cpDepanX, cpDepanZ, cpBelakangX, cpBelakangZ;
 
 void wheel(float x, float y, float z)
 {
@@ -18,7 +22,7 @@ void wheel(float x, float y, float z)
 		glRotated(90, 1, 0, 0);
 		glRotated(j, 0, 1, 0);
 		glTranslatef(0, 3, 1);
-		glColor3f(0.3, 0.3, 0.3);
+		glColor3f(0.2, 0.2, 0.2);
 		glBegin(GL_QUADS);
 		glVertex3f(0, 0, 0);
 		glVertex3f(0.3, 0, 0);
@@ -33,7 +37,7 @@ void wheel(float x, float y, float z)
 	float th;
 	glPushMatrix();
 	glTranslatef(0, 0, 3.1);
-	glColor3f(0.3, 0.3, 0.3);
+	glColor3f(0.2, 0.2, 0.2);
 	glBegin(GL_POLYGON);
 	for(int i=0; i<360; i++)
 	{
@@ -45,7 +49,7 @@ void wheel(float x, float y, float z)
 
 	glPushMatrix();
 	glTranslatef(0, 0, 2.5);
-	glColor3f(0.3, 0.3, 0.3);
+	glColor3f(0.2, 0.2, 0.2);
 	glBegin(GL_POLYGON);
 	for(int i=0; i<360; i++)
 	{
@@ -101,12 +105,44 @@ void wheelDepan(float x, float y, float z) {
 	glPopMatrix();
 }
 
+
+void collisionBox(float putaran, float tx, float ty, float tz) {
+    putaran = putaran - 90;
+    cpDepanX = tx + -10.0*sin(putaran*M_PI/180);
+    cpDepanZ = tz + -10.0*cos(putaran*M_PI/180);
+
+    cpBelakangX = tx + 5.0*sin(putaran*M_PI/180);
+    cpBelakangZ = tz + 5.0*cos(putaran*M_PI/180);
+
+    //buat visualisasi tempat collisionnya aja
+    //titik nya pas ditengah cube nya (jangan dihapus buat debug)
+//    glPushMatrix();
+//    glColor3f(1,1,1);
+//    glTranslatef(cpDepanX, ty, cpDepanZ);
+//    glRotatef(putaran, 0.0, 1.0, 0.0);
+//    glutSolidCube(3.0f);
+//    glPopMatrix();
+//
+//    glPushMatrix();
+//    glColor3f(1,1,1);
+//    glTranslatef(cpBelakangX, ty, cpBelakangZ);
+//    glRotatef(putaran, 0.0, 1.0, 0.0);
+//    glutSolidCube(3.0f);
+//    glPopMatrix();
+}
+
+
 void Truk(float putaran, float x, float y, float z){
     //glLoadIdentity();
+    collisionBox(putaran, x, y, z);
     glTranslatef(x, y, z);
+
     glPushMatrix();
     glRotated(putaran, 0.0f, 1.0f, 0.0f);
+
+    glColor3f(0.65,0.65,0.65); //warna container
     container(0,4,0,0); //depan
+    glColor3f(0.45,0.45,0.45); //warna container
     container(1,-3,0,0); //belakang
         //truck depan
 //
@@ -120,7 +156,10 @@ void Truk(float putaran, float x, float y, float z){
         //depan
         glPushMatrix();
         glTranslatef(8.75,1.7,1.5);
-        glColor3d(255.0f, 0.0f, 0.0f);
+
+        //glColor3d(128.0f, 32.0f, 32.0f);
+        //glColor3d(255.0f, 128.0f, 128.0f);
+        glColor3f(0.25,0.25,0.75);
         glBegin(GL_POLYGON);
         glVertex3f(-1.5f,-1.25f,0.0f); //kiri bawah
         glVertex3f(1.5f,-1.25f,0.0f); //kanan bawah
@@ -134,7 +173,8 @@ void Truk(float putaran, float x, float y, float z){
         //belakang
         glPushMatrix();
         glTranslatef(8.75,1.7,1.5);
-        glColor3d(0.0f, 255.0f, 0.0f);
+        //glColor3d(0.0f, 255.0f, 0.0f);
+        glColor3f(0.25,0.25,0.75);
         glBegin(GL_POLYGON);
         glVertex3f(-1.5f,-1.25f,-3.0f); //kiri bawah
         glVertex3f(1.5f,-1.25f,-3.0f); //kanan bawah
@@ -147,7 +187,8 @@ void Truk(float putaran, float x, float y, float z){
         //tutup kiri
         glPushMatrix();
         glTranslatef(8.75,1.7,1.5);
-        glColor3d(0.0f,0.0f, 255.0f);
+        //glColor3d(0.0f,0.0f, 255.0f);
+        glColor3f(0.25,0.25,0.75);
         glBegin(GL_QUADS);
         glVertex3f(-1.5f,-1.25f,-3.0f); //kiri bawah
         glVertex3f(-1.5f,1.5f,-3.0f); //kiri atas
@@ -158,7 +199,8 @@ void Truk(float putaran, float x, float y, float z){
         //tutup bawah
         glPushMatrix();
         glTranslatef(8.75,1.7,1.5);
-        glColor3d(128.0f, 128.0f, 0.0f);
+        //glColor3d(128.0f, 128.0f, 0.0f);
+        glColor3f(0.25,0.25,0.75);
         glBegin(GL_QUADS);
         glVertex3f(-1.5f,-1.25f,0.0f); //kiri bawah
         glVertex3f(1.5f,-1.25f,0.0f); //kanan bawah
@@ -169,7 +211,8 @@ void Truk(float putaran, float x, float y, float z){
         //tutup depan
         glPushMatrix();
         glTranslatef(8.75,1.7,1.5);
-        glColor3d(0.0f, 128.0f, 128.0f);
+        //glColor3d(0.0f, 128.0f, 128.0f);
+        glColor3f(0.25,0.25,0.75);
         glBegin(GL_QUADS);
         glVertex3f(1.5f,0.35f,-3.0f); //kanan atas
         glVertex3f(1.5f,-1.25f,-3.0f); //kanan bawah
@@ -180,7 +223,8 @@ void Truk(float putaran, float x, float y, float z){
         //tutup atas
         glPushMatrix();
         glTranslatef(8.75,1.7,1.5);
-        glColor3d(64.0f, 64.0f, 64.0f);
+        //glColor3d(64.0f, 64.0f, 64.0f);
+        glColor3f(0.25,0.25,0.75);
         glBegin(GL_QUADS);
         glVertex3f(1.5f,0.35f,-3.0f); //kanan atas
         glVertex3f(1.5f,0.35f,0.0f); //kanan atas
@@ -191,7 +235,8 @@ void Truk(float putaran, float x, float y, float z){
 
         glPushMatrix();
         glTranslatef(8.75,1.7,1.5);
-        glColor3d(64.0f, 64.0f, 64.0f);
+        //glColor3d(64.0f, 64.0f, 64.0f);
+        glColor3f(0.25,0.25,0.75);
         glBegin(GL_QUADS);
         glVertex3f(-0.0f,1.25f,-3.0f); //tengah kiri atas
         glVertex3f(-0.0f,1.25f,0.0f); //tengah kiri atas
@@ -201,7 +246,8 @@ void Truk(float putaran, float x, float y, float z){
         glPopMatrix();
         glPushMatrix();
         glTranslatef(8.75,1.7,1.5);
-        glColor3d(128.0f, 128.0f, 0.0f);
+        //glColor3d(128.0f, 128.0f, 0.0f);
+        glColor3f(0.85,0.85,0.85); //warna container
         glBegin(GL_QUADS);
         glVertex3f(0.25f,0.65f,0.0f); //tengah kanan atas
         glVertex3f(-0.0f,1.25f,0.0f); //tengah kiri atas
