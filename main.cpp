@@ -153,8 +153,44 @@ void cekTabrakan(Objek objek, int *existance) {
     }
 }
 
+
+void renderBitmapString(float x,float y,float z,char *string) {
+  char *c;
+
+  glRasterPos3f(x, y,z);
+  for (c=string; *c != '\0'; c++) {
+    glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *c);
+  }
+}
+
+void RenderScore() {
+    char s[100];
+    glPushMatrix();
+    sprintf(s,"Score: %d", skor);
+    glColor3f(1,1,1);
+    renderBitmapString(5, 30, 0,s); //y axis inverted
+    glPopMatrix();
+}
+
+void setOrthographicProjection() {
+	// switch to projection mode
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	// set a 2D orthographic projection
+	gluOrtho2D(0, w, h, 0);
+	glMatrixMode(GL_MODELVIEW);
+}
+
+void restorePerspectiveProjection() {
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
+}
+
 //gameplay mechanic and renders is done here here
 void display() {
+
     if (!debugCamera){
         //pergerakan truk
         if (speedX){
@@ -328,6 +364,15 @@ void display() {
     }
 
     Truk(putaranTruk, tx, ty, tz);
+
+    //display score
+    setOrthographicProjection();
+    glPushMatrix();
+    glLoadIdentity();
+    RenderScore();
+    glPopMatrix();
+    restorePerspectiveProjection();
+
     glutSwapBuffers();
     glFlush();
     printf("\ntx: %f, tz: %f, setirDitekan: %d, kecepatan: %f, skor: %d", tx, tz, setirDitekan, speedX, skor);
