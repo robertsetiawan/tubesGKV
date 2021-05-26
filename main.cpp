@@ -1,16 +1,8 @@
-/*
- * GLUT Shapes Demo
- *
- * Written by Nigel Stewart November 2003
- *
- * This program is test harness for the sphere, cone
- * and torus shapes in GLUT.
- *
- * Spinning wireframe and smooth shaded shapes are
- * displayed until the ESC or q key is pressed.  The
- * number of geometry stacks and slices can be adjusted
- * using the + and - keys.
- */
+//TUBES GKV Game Truk
+//Muhammad Afif Azizy / 24060119120011
+//Rahadian Fajar Nugroho / 24060119130075
+//Robertus Agung Setiawan / 24060119130067
+//Merry Tantri Millenia Tobing / 24060119120013
 
 #include <windows.h>
 #include "common.h"
@@ -46,16 +38,16 @@ int skor = 0;
 
 //renders
 int buildings = 1; //seluruh bangunan memakai ini, 0 = seluruh bangunan hilang
-int c0x=350.0 , c0z= 400.0, coin0 = 1;
-int c1x=2.0, c1z=-190.0, coin1 = 1;
-int c2x=-335.0, c2z=-200.0, coin2 = 1;
-int c3x=-340.0, c3z=385.0, coin3 = 1;
-int c4x=-750.0, c4z=400.0, coin4 = 1;
-int c5x=5.0, c5z=580.0, coin5 = 1;
-int c6x=345.0, c6z=-320.0, coin6 = 1;
-int c7x=870.0, c7z=-400.0, coin7 = 1;
-int c8x=875.0, c8z=-200.0, coin8 = 1;
-int c9x=850.0, c9z=410.0, coin9 = 1;
+int c0x=350.0 , c0z= 410.0, coin0 = 1;
+int c1x=10.0, c1z=-190.0, coin1 = 1;
+int c2x=-330.0, c2z=-200.0, coin2 = 1;
+int c3x=-340.0, c3z=390.0, coin3 = 1;
+int c4x=-750.0, c4z=410.0, coin4 = 1;
+int c5x=-10.0, c5z=580.0, coin5 = 1;
+int c6x=350.0, c6z=-320.0, coin6 = 1;
+int c7x=890.0, c7z=-200.0, coin7 = 1;
+int c8x=850.0, c8z=-410.0, coin8 = 1;
+int c9x=870.0, c9z=300.0, coin9 = 1;
 
 void Reshape(int w1, int h1){
     // Fungsi reshape
@@ -104,7 +96,7 @@ void moveTruk(float putaran, float deltaX){
     tz = tz + (deltaX)*0.1*-sin(putaran*M_PI/180)*(1-abs((90.0-deltaMundur)/-90));
 }
 
-void cekTabrakan(Objek objek, int *existance) {
+int cekTabrakan(Objek objek, int *existance) {
     float oMinX, oMaxX, oMinZ, oMaxZ; //objek min x, objek max x, dll.
     //jarak dari kaca depan truk ke koordinat ditengah(0,0,0) itu 10.3
 
@@ -136,6 +128,7 @@ void cekTabrakan(Objek objek, int *existance) {
         }else{
             skor += objek.getHitValue();
             *existance = 0;
+            return 1;
         }
     }
 
@@ -149,12 +142,50 @@ void cekTabrakan(Objek objek, int *existance) {
         }else{
             skor += objek.getHitValue();
             *existance = 0;
+            return 1;
         }
     }
+    return 0;
+}
+
+
+void renderBitmapString(float x,float y,float z,char *string) {
+  char *c;
+
+  glRasterPos3f(x, y,z);
+  for (c=string; *c != '\0'; c++) {
+    glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *c);
+  }
+}
+
+void RenderScore() {
+    char s[100];
+    glPushMatrix();
+    sprintf(s,"Score: %d", skor);
+    glColor3f(1,1,1);
+    renderBitmapString(5, 30, 0,s); //y axis inverted
+    glPopMatrix();
+}
+
+void setOrthographicProjection() {
+	// switch to projection mode
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	// set a 2D orthographic projection
+	gluOrtho2D(0, w, h, 0);
+	glMatrixMode(GL_MODELVIEW);
+}
+
+void restorePerspectiveProjection() {
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
 }
 
 //gameplay mechanic and renders is done here here
 void display() {
+
     if (!debugCamera){
         //pergerakan truk
         if (speedX){
@@ -284,50 +315,168 @@ void display() {
         cekTabrakan(rock3c, &buildings);
         Batu rock4c(40,12.5,470,25);
         cekTabrakan(rock4c, &buildings);
+
+        //4
+        Bangunan1 bang1d(-120, 10, -240, 25, 3);
+        cekTabrakan (bang1d, &buildings);
+        Bangunan1 bang2d(-80, 10, -240, 25, 2);
+        cekTabrakan (bang2d, &buildings);
+        Bangunan1 bang3d(-40, 10, -240, 25, 2);
+        cekTabrakan (bang3d, &buildings);
+        Batu rock1d(-160,10,-240,25);
+        cekTabrakan(rock1d, &buildings);
+        Batu rock2d(-200,10,-240,25);
+        cekTabrakan(rock2d, &buildings);
+        Batu rock3d(-240,10,-240,25);
+        cekTabrakan(rock3d, &buildings);
+        Batu rock4d(-160,10,-160,25);
+        cekTabrakan(rock4d, &buildings);
+        Batu rock5d(-200,10,-160,25);
+        cekTabrakan(rock5d, &buildings);
+        Batu rock6d(-240,10,-160,25);
+        cekTabrakan(rock6d, &buildings);
+        Batu rock7d(-100,10,-150,50);
+        cekTabrakan(rock7d, &buildings);
+        Batu rock8d(-50,0,-170,10);
+        cekTabrakan(rock8d, &buildings);
+        Batu rock9d(-30,5,-170,10);
+        cekTabrakan(rock9d, &buildings);
+
+        //5
+        Batu rock1e(40,10,-335,25);
+        cekTabrakan(rock1e, &buildings);
+        Batu rock2e(70,10,-335,25);
+        cekTabrakan(rock2e, &buildings);
+        Batu rock3e(100,10,-335,25);
+        cekTabrakan(rock3e, &buildings);
+        Batu rock4e(130,10,-335,25);
+        cekTabrakan(rock4e, &buildings);
+        Bangunan1 bang1e(170, 10, -335, 25, 3);
+        cekTabrakan (bang1e, &buildings);
+        Bangunan1 bang2e(210, 10, -335, 25, 2);
+        cekTabrakan (bang2e, &buildings);
+        Batu rock5e(230,5,-335,10);
+        cekTabrakan(rock5e, &buildings);
+        Batu rock6e(250,0,-335,10);
+        cekTabrakan(rock6e, &buildings);
+        Batu rock7e(250,0,-355,10);
+        cekTabrakan(rock7e, &buildings);
+        Batu rock8e(270,0,-335,10);
+        cekTabrakan(rock8e, &buildings);
+        Batu rock9e(270,0,-355,10);
+        cekTabrakan(rock9e, &buildings);
+        Batu rock10e(290,5,-335,10);
+        cekTabrakan(rock10e, &buildings);
+
+        //6
+        Bangunan1 bang1f(300, 10, 250, 25, 3);
+        cekTabrakan (bang1f, &buildings);
+        Bangunan1 bang2f(300, 10, 210, 25, 2);
+        cekTabrakan (bang2f, &buildings);
+        Bangunan1 bang3f(300, 10, 170, 25, 4);
+        cekTabrakan (bang3f, &buildings);
+        Bangunan1 bang4f(300, 10, 130, 25, 5);
+        cekTabrakan (bang4f, &buildings);
+        Batu rock1f(300,0,90,25);
+        cekTabrakan(rock1f, &buildings);
+        Batu rock2f(300,0,50,25);
+        cekTabrakan(rock2f, &buildings);
+        Batu rock3f(300,10,10,25);
+        cekTabrakan(rock3f, &buildings);
     }
 
+    int randomNumber;
     if (coin1){
         Coin cRender1(c1x, 5, c1z, 2);
-        cekTabrakan(cRender1, &coin1);
+        if (cekTabrakan(cRender1, &coin1)){
+            randomNumber = rand()%10 - rand()%10;
+            c1z = randomNumber * 100;
+            coin1 = 1;
+        }
     }
     if (coin2){
         Coin cRender2(c2x, 5, c2z, 2);
-        cekTabrakan(cRender2, &coin2);
+        if (cekTabrakan(cRender2, &coin2)){
+            randomNumber = rand()%10 - rand()%10;
+            c2z = randomNumber * 100;
+            coin2 = 1;
+        }
     }
     if (coin3){
         Coin cRender3(c3x, 5, c3z, 2);
-        cekTabrakan(cRender3, &coin3);
+        if (cekTabrakan(cRender3, &coin3)){
+            randomNumber = rand()%9+1;
+            c3x = randomNumber * -100;
+            coin3 = 1;
+        }
     }
     if (coin4){
         Coin cRender4(c4x, 5, c4z, 2);
-        cekTabrakan(cRender4, &coin4);
+        if (cekTabrakan(cRender4, &coin4)){
+            randomNumber = rand()%9+1;
+            c4x = randomNumber * -100;
+            coin4 = 1;
+        }
     }
     if (coin5){
         Coin cRender5(c5x, 5, c5z, 2);
-        cekTabrakan(cRender5, &coin5);
+        if (cekTabrakan(cRender5, &coin5)){
+            randomNumber = rand()%10 - rand()%10;
+            c5z = randomNumber * 100;
+            coin5 = 1;
+        }
     }
     if (coin6){
         Coin cRender6(c6x, 5, c6z, 2);
-        cekTabrakan(cRender6, &coin6);
+        if (cekTabrakan(cRender6, &coin6)){
+            randomNumber = rand()%10 - rand()%10;
+            c6z = randomNumber * 100;
+            coin6 = 1;
+        }
     }
     if (coin7){
         Coin cRender7(c7x, 5, c7z, 2);
-        cekTabrakan(cRender7, &coin7);
+        if (cekTabrakan(cRender7, &coin7)){
+            randomNumber = rand()%20 - rand()%20;
+            c7z = randomNumber * 5;
+            coin7 = 1;
+        }
     }
     if (coin8){
         Coin cRender8(c8x, 5, c8z, 2);
-        cekTabrakan(cRender8, &coin8);
+        if (cekTabrakan(cRender8, &coin8)){
+            randomNumber = rand()%50 + 35;
+            c8x = randomNumber * 10;
+            coin8 = 1;
+        }
     }
     if (coin9){
         Coin cRender9(c9x, 5, c9z, 2);
-        cekTabrakan(cRender9, &coin9);
+        if (cekTabrakan(cRender9, &coin9)){
+            randomNumber = rand()%20 - rand()%20;
+            c9z = randomNumber * 5;
+            coin9 = 1;
+        }
     }
     if (coin0){
         Coin cRender0(c0x, 5, c0z, 2);
-        cekTabrakan(cRender0, &coin0);
+        if (cekTabrakan(cRender0, &coin0)){
+            randomNumber = rand()%50 + 35;
+            c0x = randomNumber * 10;
+            coin0 = 1;
+        }
     }
 
     Truk(putaranTruk, tx, ty, tz);
+
+    //display score
+    setOrthographicProjection();
+    glPushMatrix();
+    glLoadIdentity();
+    RenderScore();
+    glPopMatrix();
+    restorePerspectiveProjection();
+
     glutSwapBuffers();
     glFlush();
     printf("\ntx: %f, tz: %f, setirDitekan: %d, kecepatan: %f, skor: %d", tx, tz, setirDitekan, speedX, skor);

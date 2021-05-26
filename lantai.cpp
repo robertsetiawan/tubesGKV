@@ -22,6 +22,29 @@ void trotoar(float x){
     glVertex3f(x, 0, 20);
     glEnd();
 	glPopMatrix();
+
+    //strip pembatas jalan
+    //panjang 40, lebar 4, jarak antar strip 10
+    int i;
+    glPushMatrix();
+    glColor3f(1, 1, 1);
+    for(i = -x+10; i < x-50; i+= 50){
+        glBegin(GL_QUADS);
+        glVertex3f(i, 0.2, 2);
+        glVertex3f(i, 0.2, -2);
+        glVertex3f(i+40, 0.2, -2);
+        glVertex3f(i+40, 0.2, 2);
+        glEnd();
+    }
+    //strip terakhir dibuat lebih pendek jadinya tidak melebihi trotoar
+    glBegin(GL_QUADS);
+    glVertex3f(i, 0.2, 2);
+    glVertex3f(i, 0.2, -2);
+    glVertex3f(x-10, 0.2, -2);
+    glVertex3f(x-10, 0.2, 2);
+    glEnd();
+    glPopMatrix();
+
 	/*
 	//strip jalan 1
 	glPushMatrix();
@@ -34,8 +57,8 @@ void trotoar(float x){
     glVertex3f(x/10, 0, x/100);
     glEnd();
 	glPopMatrix();
-	
-	//strip jalan 2 
+
+	//strip jalan 2
 	glPushMatrix();
 	glColor3f(1.0, 1.0, 1.0);
 	glTranslatef(30.0, 0.11, 0.0);
@@ -46,8 +69,8 @@ void trotoar(float x){
     glVertex3f(x/10, 0, x/100);
     glEnd();
 	glPopMatrix();
-	
-	//strip jalan 3 
+
+	//strip jalan 3
 	glPushMatrix();
 	glColor3f(1.0, 1.0, 1.0);
 	glTranslatef(-x/10, 0.11, 0.0);
@@ -58,8 +81,8 @@ void trotoar(float x){
     glVertex3f(x/10, 0, x/100);
     glEnd();
 	glPopMatrix();
-	
-	//strip jalan 4 
+
+	//strip jalan 4
 	glPushMatrix();
 	glColor3f(1.0, 1.0, 1.0);
 	glTranslatef(-50.0, 0.11, 0.0);
@@ -70,8 +93,8 @@ void trotoar(float x){
     glVertex3f(x/10, 0, x/100);
     glEnd();
 	glPopMatrix();
-	
-	//strip jalan 5 
+
+	//strip jalan 5
 	glPushMatrix();
 	glColor3f(1.0, 1.0, 1.0);
 	glTranslatef(-90.0, 0.11, 0.0);
@@ -81,7 +104,7 @@ void trotoar(float x){
     glVertex3f(x/10, 0, -x/100);
     glVertex3f(x/10, 0, x/100);
     glEnd();
-	glPopMatrix(); 
+	glPopMatrix();
 	*/
 }
 
@@ -99,7 +122,7 @@ void roadsideRight(float x){
     glVertex3f(x, 0, 1);
     glEnd();
 	glPopMatrix();
-	
+
 	//sisi jalan kanan atas
 	glPushMatrix();
 	glColor3f(0.0, 1.0, 1.0);
@@ -111,7 +134,7 @@ void roadsideRight(float x){
     glVertex3f(x, 0, 1);
     glEnd();
 	glPopMatrix();
-	
+
 	//sisi jalan kanan samping kiri
 	glPushMatrix();
 	glRotated(90, 10, 0, 0);
@@ -124,7 +147,7 @@ void roadsideRight(float x){
     glVertex3f(x, 0, 0.5);
     glEnd();
 	glPopMatrix();
-	
+
 	//sisi jalan kanan samping kanan
 	glPushMatrix();
 	glRotated(90, 10, 0, 0);
@@ -138,7 +161,7 @@ void roadsideRight(float x){
     glEnd();
 	glPopMatrix();
 	//pop sisi jalan kanan
-	glPopMatrix(); 
+	glPopMatrix();
 }
 
 void roadsideLeft(float x){
@@ -156,7 +179,7 @@ void roadsideLeft(float x){
     glVertex3f(x, 0, 1);
     glEnd();
 	glPopMatrix();
-	
+
 	//sisi jalan kiri atas
 	glPushMatrix();
 	glColor3f(0.0, 1.0, 1.0);
@@ -168,7 +191,7 @@ void roadsideLeft(float x){
     glVertex3f(x, 0, 1);
     glEnd();
 	glPopMatrix();
-	
+
 	//sisi jalan kiri samping kiri
 	glPushMatrix();
 	glRotated(90, 10, 0, 0);
@@ -181,7 +204,7 @@ void roadsideLeft(float x){
     glVertex3f(x, 0, 0.5);
     glEnd();
 	glPopMatrix();
-	
+
 	//sisi jalan kiri samping kanan
 	glPushMatrix();
 	glRotated(90, 10, 0, 0);
@@ -195,7 +218,7 @@ void roadsideLeft(float x){
     glEnd();
 	glPopMatrix();
 	//pop sisi jalan kiri
-	glPopMatrix(); 
+	glPopMatrix();
 }
 void Jalan()
 {
@@ -204,29 +227,29 @@ void Jalan()
     const float Z_MIN = -50, Z_MAX = 50;
     const float X_MIN = -50, X_MAX = 50;
     const float gap = 10.0;
-    
-    
+
+
     //Push Pertama untuk lantai dasar dll agak kebawah
     glPushMatrix();
     glTranslatef(0.0, -0.5,0.0);
-    
+
     //lantai dasar
     lantai();
-    
+
     //push jalan 3
     glPushMatrix();
     glTranslatef(-680.0, 0.0, -400.0);
     trotoar(320);
     //pop jalan 3
     glPopMatrix();
-	
+
 	//push jalan 1
     glPushMatrix();
     glTranslatef(-680.0, 0.0, 400.0);
     trotoar(320);
     //pop jalan 1
     glPopMatrix();
-    
+
     //Push jalan 2
 	glPushMatrix();
 	//rotasi ke kanan
@@ -235,48 +258,48 @@ void Jalan()
 	//Trotoar dan strip jalan
 	trotoar(1000);
 	//pop jalan 2
-	glPopMatrix(); 
-	
+	glPopMatrix();
+
     //push jalan 4
     glPushMatrix();
     glTranslatef(-170.0, 0.0, -200.0);
     trotoar(150);
     //pop jalan 4
     glPopMatrix();
-    
+
 	//push jalan 5
     glPushMatrix();
     glTranslatef(-170.0, 0.0, 400.0);
     trotoar(150);
     //pop jalan 5
     glPopMatrix();
-    
+
 	//Push jalan 6
 	glPushMatrix();
 	//rotasi ke kanan
 	glRotated(90, 0, 1, 0);
 	//Trotoar dan strip jalan
 	trotoar(1000);
-	//roadside right	
+	//roadside right
 	//roadsideRight(100);
     //roadside left
     //roadsideLeft(100);
-    glPopMatrix();  
-    
+    glPopMatrix();
+
     //push jalan 7
     glPushMatrix();
     glTranslatef(170.0, 0.0, -300.0);
     trotoar(150);
     //pop jalan 7
     glPopMatrix();
-    
+
 	//push jalan 8
     glPushMatrix();
     glTranslatef(170.0, 0.0, 300.0);
     trotoar(150);
     //pop jalan 8
     glPopMatrix();
-	 
+
 	 //Push jalan 9
 	glPushMatrix();
 	//rotasi ke kanan
@@ -285,23 +308,23 @@ void Jalan()
 	//Trotoar dan strip jalan
 	trotoar(1000);
 	//pop jalan 9
-	glPopMatrix();  
-	
-	
+	glPopMatrix();
+
+
 	//push jalan 10
     glPushMatrix();
     glTranslatef(610.0, 0.0, -400.0);
     trotoar(250);
     //pop jalan 10
     glPopMatrix();
-	
+
 	//push jalan 11
     glPushMatrix();
     glTranslatef(610.0, 0.0, 400.0);
     trotoar(250);
     //pop jalan 11
-    glPopMatrix();   
-    
+    glPopMatrix();
+
     //Push jalan 12
 	glPushMatrix();
 	//rotasi ke kanan
@@ -311,24 +334,24 @@ void Jalan()
 	trotoar(1000);
 	//pop jalan 12
 	glPopMatrix();
-	
+
 	//push jalan 13
     glPushMatrix();
     glTranslatef(950.0, 0.0, -200.0);
     trotoar(50);
     //pop jalan 13
     glPopMatrix();
-	
+
 	//push jalan 14
     glPushMatrix();
     glTranslatef(950.0, 0.0, 200.0);
     trotoar(50);
     //pop jalan 14
     glPopMatrix();
-    
-	
+
+
 	//pop end
-	glPopMatrix();       
-    
+	glPopMatrix();
+
 }
 
