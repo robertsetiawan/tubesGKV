@@ -6,6 +6,11 @@
 *.lo
 *.o
 *.obj
+*.win
+*.layout
+*.dev
+*.depend
+*.cbp
 
 # Precompiled Headers
 *.gch
