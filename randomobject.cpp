@@ -67,6 +67,26 @@ Batu::Batu(float x, float y, float z, float s)
     glPopMatrix();
 }
 
+Bangunan1::Bangunan1(float x, float y, float z, float s, int jumlahTumpuk)
+{
+    setX(x);
+    setY(y);
+    setZ(z);
+    setSize(s);
+    setHitValue(0);
+
+    for (int i=0;i<jumlahTumpuk;i++){
+        glPushMatrix();
+        glTranslatef(getX(),getY()+getSize()*i, getZ());
+            glPushMatrix();
+                glColor3f(0.5,0.25,0.5);
+                glutSolidCube(getSize());
+            glPopMatrix();
+        glPopMatrix();
+    }
+
+}
+
 Coin::Coin(float x, float y, float z, float s){
     setX(x);
     setY(y);

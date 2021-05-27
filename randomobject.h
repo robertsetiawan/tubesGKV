@@ -32,6 +32,12 @@ public:
     Batu(float x, float y, float z, float s); //constructor
 };
 
+class Bangunan1: public Objek //Bangunan extends Objek
+{
+public:
+    Bangunan1(float x, float y, float z, float s, int jumlahTumpuk); //constructor
+};
+
 class Coin: public Objek //Batu extends Objek
 {
 public:
