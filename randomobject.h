@@ -32,6 +32,8 @@ public:
     Batu(float x, float y, float z, float s); //constructor
 };
 
+
+
 class Coin: public Objek //Batu extends Objek
 {
 public:
@@ -39,4 +41,22 @@ public:
 };
 
 //tambah blue print objek lain disini
+class Gedung: public Objek //Batu extends Objek
+{
+public:
+    Gedung(float x, float y, float z, float s); //constructor
+};
+
+class GedungTinggi: public Objek
+{
+public: 
+	GedungTinggi(float x, float y, float z, float s);
+};
+
+
+class Pohon: public Objek
+{
+public: 
+	Pohon(float x, float y, float z);
+};
 #endif // RANDOMOBJECT_H
