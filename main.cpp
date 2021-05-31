@@ -220,7 +220,7 @@ void restorePerspectiveProjection() {
 
 //gameplay mechanic and renders is done here here
 void display() {
-
+    glClearColor(0.64, 0.79, 0.99, 0);
     if (!debugCamera){
         //pergerakan truk
         if (speedX){
@@ -283,141 +283,188 @@ void display() {
     Jalan();
     // Gambar objek di sini...
     if (buildings){
+            //x positif start sini
         //1 tiap-tiap objek sebaris
-        Batu rock1a(40,12.5,-30,25);
+        Batu rock1a(40,12,-30,25,0.4,0.4,0.4);
         cekTabrakan(rock1a, &buildings);
-        Batu rock2a(40,10,10,25);
+        Batu rock2a(40,10,10,25,0.4,0.4,0.4);
         cekTabrakan(rock2a, &buildings);
-        Batu rock3a(40,10,70,25);
+        Batu rock3a(40,10,70,25,0.4,0.4,0.4);
         cekTabrakan(rock3a, &buildings);
-        Batu rock4a(40,10,110,25);
+        Batu rock4a(40,10,110,25,0.4,0.4,0.4);
         cekTabrakan(rock4a, &buildings);
-        Batu rock5a(40,10,150,25);
+        Batu rock5a(40,10,150,25,0.4,0.4,0.4);
         cekTabrakan(rock5a, &buildings);
-        Batu rock6a(40,10,-200,25);
+        Batu rock6a(40,10,-200,25,0.4,0.4,0.4);
         cekTabrakan(rock6a, &buildings);
-        Batu rock7a(40,10,-240,25);
+        Batu rock7a(40,10,-240,25,0.4,0.4,0.4);
         cekTabrakan(rock7a, &buildings);
-        Batu rock8a(50,10,250,50);
+        Batu rock8a(50,10,250,50,0.4,0.4,0.4);
         cekTabrakan(rock8a, &buildings);
-        Batu rock9a(40,3,-50,10); //urut seperti pagar
+        Batu rock9a(40,3,-50,10,0.4,0.4,0.4); //urut seperti pagar
         cekTabrakan(rock9a, &buildings);
-        Batu rock10a(40,3,-65,10);
+        Batu rock10a(40,3,-65,10,0.4,0.4,0.4);
         cekTabrakan(rock10a, &buildings);
-        Batu rock11a(40,3,-80,10);
+        Batu rock11a(40,3,-80,10,0.4,0.4,0.4);
         cekTabrakan(rock11a, &buildings);
-        Batu rock12a(40,3,-95,10);
+        Batu rock12a(40,3,-95,10,0.4,0.4,0.4);
         cekTabrakan(rock12a, &buildings);
-        Batu rock13a(40,3,-110,10);
+        Batu rock13a(40,3,-110,10,0.4,0.4,0.4);
         cekTabrakan(rock13a, &buildings);
-        Batu rock14a(40,3,-125,10);
+        Batu rock14a(40,3,-125,10,0.4,0.4,0.4);
         cekTabrakan(rock14a, &buildings);
-        Batu rock15a(40,10,-160,25);
+        Batu rock15a(40,10,-160,25,0.4,0.4,0.4);
         cekTabrakan(rock15a, &buildings);
+        Pohon pohon1a(25,0,-60,2);
+        cekTabrakan(pohon1a, &buildings);
+        Pohon pohon2a(25,0,-90,2);
+        cekTabrakan(pohon2a, &buildings);
+        Pohon pohon3a(25,0,-120,2);
+        cekTabrakan(pohon3a, &buildings);
+        Pohon pohon4a(-30,0,65,2);
+        cekTabrakan(pohon4a, &buildings);
+        Pohon pohon5a(-33,0,75,2);
+        cekTabrakan(pohon5a, &buildings);
+        Pohon pohon6a(-29,0,55,1);
+        cekTabrakan(pohon6a, &buildings);
+        Lampu lampu1a(21,0,-260, 90);
+        cekTabrakan(lampu1a, &buildings);
+        Lampu lampu2a(21,0,-220, 90);
+        cekTabrakan(lampu2a, &buildings);
+        Lampu lampu3a(21,0,-180, 90);
+        cekTabrakan(lampu3a, &buildings);
 
-        //2
-        Batu rock1b(-50,20,300,50);
-        cekTabrakan(rock1b, &buildings);
-        Batu rock2b(-30,5,360,10);
-        cekTabrakan(rock2b, &buildings);
-        Batu rock3b(-50,0,360,10);
-        cekTabrakan(rock3b, &buildings);
-        Batu rock4b(-30,0,340,10);
-        cekTabrakan(rock4b, &buildings);
-        Batu rock5b(-40,10,240,25);
-        cekTabrakan(rock5b, &buildings);
-        Batu rock6b(-40,10,200,25);
-        cekTabrakan(rock6b, &buildings);
-        Batu rock7b(-40,10,160,25);
-        cekTabrakan(rock7b, &buildings);
-        Batu rock8b(-40,10,120,25);
-        cekTabrakan(rock8b, &buildings);
-        Batu rock9b(-40,10,20,25);
-        cekTabrakan(rock9b, &buildings);
-        Batu rock10b(-40,10,-20,25);
-        cekTabrakan(rock10b, &buildings);
-        Batu rock11b(-50,20,-100,50);
-        cekTabrakan(rock11b, &buildings);
-        Batu rock12b(-40,10,-140,25);
-        cekTabrakan(rock12b, &buildings);
 
         //3
-        Batu rock1c(50,20,350,50);
+        Batu rock1c(50,20,350,50,0.4,0.4,0.4);
         cekTabrakan(rock1c, &buildings);
-        Batu rock2c(40,12.5,390,25);
+        Batu rock2c(40,12.5,390,25,0.4,0.4,0.4);
         cekTabrakan(rock2c, &buildings);
-        Batu rock3c(40,12.5,430,25);
+        Batu rock3c(40,12.5,430,25,0.4,0.4,0.4);
         cekTabrakan(rock3c, &buildings);
-        Batu rock4c(40,12.5,470,25);
+        Batu rock4c(40,12.5,470,25,0.4,0.4,0.4);
         cekTabrakan(rock4c, &buildings);
 
-        //4
-        Bangunan1 bang1d(-120, 10, -240, 25, 3);
-        cekTabrakan (bang1d, &buildings);
-        Bangunan1 bang2d(-80, 10, -240, 25, 2);
-        cekTabrakan (bang2d, &buildings);
-        Bangunan1 bang3d(-40, 10, -240, 25, 2);
-        cekTabrakan (bang3d, &buildings);
-        Batu rock1d(-160,10,-240,25);
-        cekTabrakan(rock1d, &buildings);
-        Batu rock2d(-200,10,-240,25);
-        cekTabrakan(rock2d, &buildings);
-        Batu rock3d(-240,10,-240,25);
-        cekTabrakan(rock3d, &buildings);
-        Batu rock4d(-160,10,-160,25);
-        cekTabrakan(rock4d, &buildings);
-        Batu rock5d(-200,10,-160,25);
-        cekTabrakan(rock5d, &buildings);
-        Batu rock6d(-240,10,-160,25);
-        cekTabrakan(rock6d, &buildings);
-        Batu rock7d(-100,10,-150,50);
-        cekTabrakan(rock7d, &buildings);
-        Batu rock8d(-50,0,-170,10);
-        cekTabrakan(rock8d, &buildings);
-        Batu rock9d(-30,5,-170,10);
-        cekTabrakan(rock9d, &buildings);
-
         //5
-        Batu rock1e(40,10,-335,25);
+        Batu rock1e(40,10,-335,25,0.4,0.4,0.4);
         cekTabrakan(rock1e, &buildings);
-        Batu rock2e(70,10,-335,25);
+        Batu rock2e(70,10,-335,25,0.4,0.4,0.4);
         cekTabrakan(rock2e, &buildings);
-        Batu rock3e(100,10,-335,25);
+        Batu rock3e(100,10,-335,25,0.4,0.4,0.4);
         cekTabrakan(rock3e, &buildings);
-        Batu rock4e(130,10,-335,25);
+        Batu rock4e(130,10,-335,25,0.4,0.4,0.4);
         cekTabrakan(rock4e, &buildings);
-        Bangunan1 bang1e(170, 10, -335, 25, 3);
+        Bangunan1 bang1e(170, 10, -335, 25,0.5,0.25,0.5, 3);
         cekTabrakan (bang1e, &buildings);
-        Bangunan1 bang2e(210, 10, -335, 25, 2);
+        Bangunan1 bang2e(210, 10, -335, 25,0.5,0.25,0.5, 2);
         cekTabrakan (bang2e, &buildings);
-        Batu rock5e(230,5,-335,10);
+        Batu rock5e(230,5,-335,10,0.4,0.4,0.4);
         cekTabrakan(rock5e, &buildings);
-        Batu rock6e(250,0,-335,10);
+        Batu rock6e(250,0,-335,10,0.4,0.4,0.4);
         cekTabrakan(rock6e, &buildings);
-        Batu rock7e(250,0,-355,10);
+        Batu rock7e(250,0,-355,10,0.4,0.4,0.4);
         cekTabrakan(rock7e, &buildings);
-        Batu rock8e(270,0,-335,10);
+        Batu rock8e(270,0,-335,10,0.4,0.4,0.4);
         cekTabrakan(rock8e, &buildings);
-        Batu rock9e(270,0,-355,10);
+        Batu rock9e(270,0,-355,10,0.4,0.4,0.4);
         cekTabrakan(rock9e, &buildings);
-        Batu rock10e(290,5,-335,10);
+        Batu rock10e(290,5,-335,10,0.4,0.4,0.4);
         cekTabrakan(rock10e, &buildings);
+        Pine pine1e(300, 0, -360, 2);
+        cekTabrakan(pine1e, &buildings);
 
         //6
-        Bangunan1 bang1f(300, 10, 250, 25, 3);
+        Lampu lampu1f(317,0,-270, -90);
+        cekTabrakan(lampu1f, &buildings);
+        Lampu lampu2f(364,0,-220, 90);
+        cekTabrakan(lampu2f, &buildings);
+        Lampu lampu3f(317,0,-170, -90);
+        cekTabrakan(lampu3f, &buildings);
+        Lampu lampu4f(364,0,-120, 90);
+        cekTabrakan(lampu4f, &buildings);
+        Lampu lampu5f(317,0,-70, -90);
+        cekTabrakan(lampu5f, &buildings);
+        Lampu lampu6f(364,0,-20, 90);
+        cekTabrakan(lampu6f, &buildings);
+        Lampu lampu7f(317,0, 30, -90);
+        cekTabrakan(lampu7f, &buildings);
+        Lampu lampu8f(364,0, 80, 90);
+        cekTabrakan(lampu8f, &buildings);
+        Lampu lampu9f(317,0, 130, -90);
+        cekTabrakan(lampu9f, &buildings);
+        Lampu lampu10f(364,0, 180, 90);
+        cekTabrakan(lampu10f, &buildings);
+        Lampu lampu11f(317,0, 230, -90);
+        cekTabrakan(lampu11f, &buildings);
+        Bangunan1 bang1f(300, 10, 250, 25,0.5,0.25,0.5, 3);
         cekTabrakan (bang1f, &buildings);
-        Bangunan1 bang2f(300, 10, 210, 25, 2);
+        Bangunan1 bang2f(300, 10, 210, 25,0.5,0.25,0.5, 2);
         cekTabrakan (bang2f, &buildings);
-        Bangunan1 bang3f(300, 10, 170, 25, 4);
+        Bangunan1 bang3f(300, 10, 170, 25,0.5,0.25,0.5, 4);
         cekTabrakan (bang3f, &buildings);
-        Bangunan1 bang4f(300, 10, 130, 25, 5);
+        Bangunan1 bang4f(300, 10, 130, 25,0.5,0.25,0.5, 5);
         cekTabrakan (bang4f, &buildings);
-        Batu rock1f(300,0,90,25);
+        Batu rock1f(300,0,90,25,0.4,0.4,0.4);
         cekTabrakan(rock1f, &buildings);
-        Batu rock2f(300,0,50,25);
+        Batu rock2f(300,0,50,25,0.4,0.4,0.4);
         cekTabrakan(rock2f, &buildings);
-        Batu rock3f(300,10,10,25);
+        Batu rock3f(300,10,10,25,0.4,0.4,0.4);
         cekTabrakan(rock3f, &buildings);
+
+            //x negatif start sini
+        //2
+        Batu rock1b(-50,20,300,50,0.4,0.4,0.4);
+        cekTabrakan(rock1b, &buildings);
+        Batu rock2b(-30,5,360,10,0.4,0.4,0.4);
+        cekTabrakan(rock2b, &buildings);
+        Batu rock3b(-50,0,360,10,0.4,0.4,0.4);
+        cekTabrakan(rock3b, &buildings);
+        Batu rock4b(-30,0,340,10,0.4,0.4,0.4);
+        cekTabrakan(rock4b, &buildings);
+        Batu rock5b(-40,10,240,25,0.4,0.4,0.4);
+        cekTabrakan(rock5b, &buildings);
+        Batu rock6b(-40,10,200,25,0.4,0.4,0.4);
+        cekTabrakan(rock6b, &buildings);
+        Batu rock7b(-40,10,160,25,0.4,0.4,0.4);
+        cekTabrakan(rock7b, &buildings);
+        Batu rock8b(-40,10,120,25,0.4,0.4,0.4);
+        cekTabrakan(rock8b, &buildings);
+        Batu rock9b(-40,10,20,25,0.4,0.4,0.4);
+        cekTabrakan(rock9b, &buildings);
+        Batu rock10b(-40,10,-20,25,0.4,0.4,0.4);
+        cekTabrakan(rock10b, &buildings);
+        Batu rock11b(-50,20,-100,50,0.4,0.4,0.4);
+        cekTabrakan(rock11b, &buildings);
+        Batu rock12b(-40,10,-140,25,0.4,0.4,0.4);
+        cekTabrakan(rock12b, &buildings);
+
+        //4
+        Bangunan1 bang1d(-120, 10, -240, 25,0.5,0.25,0.5, 3);
+        cekTabrakan (bang1d, &buildings);
+        Bangunan1 bang2d(-80, 10, -240, 25,0.5,0.25,0.5, 2);
+        cekTabrakan (bang2d, &buildings);
+        Bangunan1 bang3d(-40, 10, -240, 25,0.5,0.25,0.5, 2);
+        cekTabrakan (bang3d, &buildings);
+        Batu rock1d(-160,10,-240,25,0.4,0.4,0.4);
+        cekTabrakan(rock1d, &buildings);
+        Batu rock2d(-200,10,-240,25,0.4,0.4,0.4);
+        cekTabrakan(rock2d, &buildings);
+        Batu rock3d(-240,10,-240,25,0.4,0.4,0.4);
+        cekTabrakan(rock3d, &buildings);
+        Batu rock4d(-160,10,-160,25,0.4,0.4,0.4);
+        cekTabrakan(rock4d, &buildings);
+        Batu rock5d(-200,10,-160,25,0.4,0.4,0.4);
+        cekTabrakan(rock5d, &buildings);
+        Batu rock6d(-240,10,-160,25,0.4,0.4,0.4);
+        cekTabrakan(rock6d, &buildings);
+        Batu rock7d(-100,10,-150,50,0.4,0.4,0.4);
+        cekTabrakan(rock7d, &buildings);
+        Batu rock8d(-50,0,-170,10,0.4,0.4,0.4);
+        cekTabrakan(rock8d, &buildings);
+        Batu rock9d(-30,5,-170,10,0.4,0.4,0.4);
+        cekTabrakan(rock9d, &buildings);
+
+
     }
 
     int randomNumber;
