@@ -184,7 +184,7 @@ void restorePerspectiveProjection() {
 }
 
 
-void renderBitmapString(float x,float y,float z,char *string) {
+/*void renderBitmapString(float x,float y,float z,char *string) {
   char *c;
 
   glRasterPos3f(x, y,z);
@@ -216,7 +216,7 @@ void restorePerspectiveProjection() {
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
 	glMatrixMode(GL_MODELVIEW);
-}
+}*/
 
 //gameplay mechanic and renders is done here here
 void display() {
