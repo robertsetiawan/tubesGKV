@@ -62,6 +62,11 @@ public:
     Coin(float x, float y, float z, float s); //constructor
 };
 
+class Awan: public Objek //Batu extends Objek
+{
+public:
+    Awan(float x, float y, float z, float s);
+};
 
 //tambah blue print objek lain disini
 #endif // RANDOMOBJECT_H
