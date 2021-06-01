@@ -142,6 +142,105 @@ void Truk(float putaran, float x, float y, float z){
 
     glColor3f(0.65,0.65,0.65); //warna container
     container(0,4,0,0); //depan
+    
+    	//Depan
+    	glPushMatrix();
+		//Hiasan 1
+    	glPushMatrix();
+    	glColor3f(0,0.16,0.631);
+    	glTranslatef(1.5,2,1.51);
+    	glRectf(5.5, 0.5, -0.5, -0.5);
+    	glPopMatrix();
+    
+    	//hiasan 2
+    	glPushMatrix();
+    	glColor3f(0,0.16,0.631);
+    	glTranslatef(1.5,2,-1.51);
+    	glRectf(5.5, 0.5, -0.5, -0.5);
+    	glPopMatrix();
+    	glPopMatrix();
+    
+    	//belakang
+    	glPushMatrix();
+    	glTranslatef(-6.2, 0, 0);
+		//Hiasan 1
+    	glPushMatrix();
+    	glColor3f(0,0.16,0.631);
+    	glTranslatef(1.5,2,1.51);
+    	glRectf(5.5, 0.5, -2.0, -0.5);
+    	glPopMatrix();
+    
+    	//hiasan 2
+    	glPushMatrix();
+    	glColor3f(0,0.16,0.631);
+    	glTranslatef(1.5,2,-1.51);
+    	glRectf(5.5, 0.5, -2.0, -0.5);
+    	glPopMatrix();
+    	glPopMatrix();
+    	
+    	//hiasan biru belakang
+    	glPushMatrix();
+		glTranslatef(-8.3, 0, -1.5);
+		//Hiasan 1
+    	glPushMatrix();
+    	glColor3f(0,0.16,0.631);
+    	glTranslatef(1.5,2,1.51);
+    	glRotatef(90, 0, 1, 0);
+    	glRectf(1.5, 0.5, -1.5, -0.5);
+    	glPopMatrix();
+    	glPopMatrix();
+    	
+    	
+    	//lampu kiri kuning
+    	glPushMatrix();
+		glTranslatef(-8.3, -1.2, -2.55);
+		//Hiasan 1
+    	glPushMatrix();
+    	glColor3f(0.89,0.02,0.01);
+    	glTranslatef(1.5,2,1.51);
+    	glRotatef(90, 0, 1, 0);
+    	glRectf(0.225, 0.125, -0.225, -0.125);
+    	glPopMatrix();
+    	glPopMatrix();
+    	
+    	//lampu kiri kuning
+    	glPushMatrix();
+		glTranslatef(-8.3, -1.2, -2.1);
+		//Hiasan 1
+    	glPushMatrix();
+    	glColor3f(0.89,0.82,0.01);
+    	glTranslatef(1.5,2,1.51);
+    	glRotatef(90, 0, 1, 0);
+    	glRectf(0.225, 0.125, -0.225, -0.125);
+    	glPopMatrix();
+    	glPopMatrix();
+    	
+    	
+    	
+    	////lampu kanan kuning
+    	glPushMatrix();
+		glTranslatef(-8.3, -1.2, -0.9);
+		//Hiasan 1
+    	glPushMatrix();
+    	glColor3f(0.89,0.82,0.01);
+    	glTranslatef(1.5,2,1.51);
+    	glRotatef(90, 0, 1, 0);
+    	glRectf(0.225, 0.125, -0.225, -0.125);
+    	glPopMatrix();
+    	glPopMatrix();
+    	
+    	////lampu kanan kuning
+    	glPushMatrix();
+		glTranslatef(-8.3, -1.2, -0.5);
+		//Hiasan 1
+    	glPushMatrix();
+    	glColor3f(0.89,0.02,0.01);
+    	glTranslatef(1.5,2,1.51);
+    	glRotatef(90, 0, 1, 0);
+    	glRectf(0.225, 0.125, -0.225, -0.125);
+    	glPopMatrix();
+    	glPopMatrix();
+    	
     glColor3f(0.45,0.45,0.45); //warna container
     container(1,-3,0,0); //belakang
         //truck depan
@@ -208,6 +307,7 @@ void Truk(float putaran, float x, float y, float z){
         glVertex3f(-1.5f,-1.25f,-3.0f); //kiri bawah
         glEnd();
         glPopMatrix();
+        
         //tutup depan
         glPushMatrix();
         glTranslatef(8.75,1.7,1.5);
@@ -220,6 +320,74 @@ void Truk(float putaran, float x, float y, float z){
         glVertex3f(1.5f,0.35f,0.0f); //kanan atas
         glEnd();
         glPopMatrix();
+        
+		//cerobong kanan
+        glPushMatrix();
+        GLUquadricObj *pObj;
+        pObj = gluNewQuadric();
+    	gluQuadricNormals(pObj, GLU_SMOOTH);
+    	glPushMatrix();
+    		glColor3f(0.75,0.75,0.75);
+    		glRotated(270, 1, 0, 0);
+    		glTranslatef(7, 1.2, 0.6);
+    		gluCylinder(pObj, 0.2, 0.2, 4, 10, 10);
+		glPopMatrix();
+		glPopMatrix();
+		
+		//cerobong kiri
+    	glPushMatrix();
+    		glColor3f(0.75,0.75,0.75);
+    		glRotated(270, 1, 0, 0);
+    		glTranslatef(7, -1.2, 0.5);
+    		gluCylinder(pObj, 0.2, 0.2, 4, 10, 10);
+		glPopMatrix();
+		
+        //plat
+        glPushMatrix();
+        glTranslatef(10.3,1,0);
+        //glColor3d(0.0f, 128.0f, 128.0f);
+        glRotatef(90,0,1,0);
+		glColor3f(0.75,0.75,0.75);
+        glRectf(0.5,0.25,-0.5,-0.25);
+        glPopMatrix();
+        
+        
+        //lampu kiri kuning
+        glPushMatrix();
+        glTranslatef(10.32, 1.8, 1.0);
+        //glColor3d(0.0f, 128.0f, 128.0f);
+        glRotatef(90,0,1,0);
+		glColor3f(0.89,0.81,0.02);
+        glRectf(0.25,0.125,-0.25,-0.125);
+        glPopMatrix();
+        
+        //lampu kiri putih
+        glPushMatrix();
+        glTranslatef(10.3, 1.8, 1.1);
+        //glColor3d(0.0f, 128.0f, 128.0f);
+        glRotatef(90,0,1,0);
+		glColor3f(0.9,0.9,0.9);
+        glRectf(0.35,0.175,-0.35,-0.175);
+        glPopMatrix();
+        
+        //lampu kanan kuning
+        glPushMatrix();
+        glTranslatef(10.32, 1.8, -1.0);
+        //glColor3d(0.0f, 128.0f, 128.0f);
+        glRotatef(90,0,1,0);
+		glColor3f(0.89,0.81,0.02);
+        glRectf(0.25,0.125,-0.25,-0.125);
+        glPopMatrix();
+        
+        //lampu kanan putih
+        glPushMatrix();
+        glTranslatef(10.3, 1.8, -1.0);
+        //glColor3d(0.0f, 128.0f, 128.0f);
+        glRotatef(90,0,1,0);
+		glColor3f(0.9,0.9,0.9);
+        glRectf(0.35,0.175,-0.35,-0.175);
+        glPopMatrix();
+        
         //tutup atas
         glPushMatrix();
         glTranslatef(8.75,1.7,1.5);
