@@ -108,7 +108,7 @@ Pohon::Pohon(float x, float y, float z, float s){
     		glColor3ub(104, 70, 14);
     		glRotated(270, 1, 0, 0);
     		glTranslatef(0,0,0);
-    		gluCylinder(pObj, 1.5, 0.5, 8, 25, 25);
+    		gluCylinder(pObj, 1.5, 0.5, 8, 5, 5);
 		glPopMatrix();
         //daun 1
         glPushMatrix();
@@ -160,7 +160,7 @@ Pine::Pine(float x, float y, float z, float s){
     		glColor3ub(104, 70, 14);
     		glRotated(270, 1, 0, 0);
     		glTranslatef(0,0,0);
-    		gluCylinder(pObj, 1.5, 1, 8, 25, 25);
+    		gluCylinder(pObj, 1.5, 1, 8, 5, 5);
 		glPopMatrix();
         //daun 1
         glPushMatrix();
@@ -168,7 +168,7 @@ Pine::Pine(float x, float y, float z, float s){
             glScaled(2, 2, 2);
             glRotated(-90, 1, 0, 0);
             glTranslatef(0,0,2);
-            glutSolidCone(3, 8, 25, 25);
+            glutSolidCone(3, 8, 5, 5);
         glPopMatrix();
         //daun 2
         glPushMatrix();
@@ -176,7 +176,7 @@ Pine::Pine(float x, float y, float z, float s){
             glScaled(2, 2, 2);
             glRotated(-90, 1, 0, 0);
             glTranslatef(0,0,4);
-            glutSolidCone(3, 8, 25, 25);
+            glutSolidCone(3, 8, 5, 5);
         glPopMatrix();
 	glPopMatrix();
 	glFlush();
