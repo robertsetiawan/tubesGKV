@@ -182,7 +182,6 @@ Pine::Pine(float x, float y, float z, float s){
 	glFlush();
 }
 
-
 Lampu::Lampu(float x, float y, float z, float rotation){
     setX(x);
     setY(y);
@@ -228,4 +227,48 @@ Coin::Coin(float x, float y, float z, float s){
             glutSolidTorus(getSize()/2,getSize(),5,5);
         glPopMatrix();
     glPopMatrix();
+}
+
+Awan::Awan(float x, float y, float z, float s){
+    setX(x);
+    setY(y);
+    setZ(z);
+    setSize(s);
+
+        glPushMatrix();
+        glTranslatef(getX(),getY(),getZ());
+        glScalef(s,s,s);
+			glPushMatrix();
+        		glPushMatrix();
+        			glColor3ub(153, 223, 255);
+        			glRotated(90, 0, 1, 0);
+        			glTranslatef(0, 2, 0); //5 ,20 , -10
+        			glutSolidSphere(2, 10, 5);
+        		glPopMatrix();
+        		glPushMatrix();
+        			glColor3ub(153, 223, 255);
+        			glRotated(90, 0, 1, 0);
+        			glTranslatef(1, 1.5, -1.7);
+        			glutSolidSphere(1.8, 10, 5);
+        		glPopMatrix();
+				glPushMatrix();
+        			glColor3ub(153, 223, 255);
+        			glRotated(90, 0, 1, 0);
+        			glTranslatef(1, 1.5, 1.7);
+        			glutSolidSphere(1.8, 10, 5);
+        		glPopMatrix();
+				glPushMatrix();
+        			glColor3ub(153, 223, 255);
+        			glRotated(90, 0, 1, 0);
+        			glTranslatef(-1, 1.5, -1.7);
+        			glutSolidSphere(2, 10, 5);
+        		glPopMatrix();
+				glPushMatrix();
+        			glColor3ub(153, 223, 255);
+        			glRotated(90, 0, 1, 0);
+        			glTranslatef(-1, 1.5, 1.7);
+        			glutSolidSphere(2, 10, 5);
+        		glPopMatrix();
+        	glPopMatrix();
+        glPopMatrix();
 }
