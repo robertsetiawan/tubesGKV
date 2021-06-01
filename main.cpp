@@ -562,6 +562,341 @@ void display() {
         cekTabrakan(lampu6ipos, &buildings);
 
             //x negatif start sini
+        Lampu lampu2x(-23, 0, -255, -90);
+        cekTabrakan(lampu2x, &buildings);
+        Lampu lampu3x(-23, 0, -305, -90);
+        cekTabrakan(lampu3x, &buildings);
+        Lampu lampu4x(-23, 0, -355, -90);
+        cekTabrakan(lampu4x, &buildings);
+        Lampu lampu5x(-23, 0, -405, -90);
+        cekTabrakan(lampu5x, &buildings);
+        Lampu lampu6x(-23, 0, -455, -90);
+        cekTabrakan(lampu6x, &buildings);
+        Lampu lampu7x(-23, 0, -555, -90);
+        cekTabrakan(lampu7x, &buildings);
+        Lampu lampu8x(-23, 0, -605, -90);
+        cekTabrakan(lampu8x, &buildings);
+        Lampu lampu9x(-23, 0, -655, -90);
+        cekTabrakan(lampu9x, &buildings);
+        Lampu lampu10x(-23, 0, -705, -90);
+        cekTabrakan(lampu10x, &buildings);
+        Lampu lampu11x(-23, 0, -755, -90);
+        cekTabrakan(lampu11x, &buildings);
+        Lampu lampu12x(-23, 0, -805, -90);
+        cekTabrakan(lampu12x, &buildings);
+        Lampu lampu13x(-23, 0, -855, -90);
+        cekTabrakan(lampu13x, &buildings);
+        Lampu lampu14x(-23, 0, -905, -90);
+        cekTabrakan(lampu14x, &buildings);
+        Lampu lampu15x(-23, 0, -955, -90);
+        cekTabrakan(lampu15x, &buildings);
+
+        Bangunan1 bang1x(-270, 10, -240, 25,0.1,0.25,0.5, 5);
+        cekTabrakan (bang1x, &buildings);
+        Pine pine1x(-290, 0, -230, 1);
+        cekTabrakan(pine1x, &buildings);
+        Pine pine2x(-300, 0, -230, 1);
+        cekTabrakan(pine2x, &buildings);
+        Pine pine3x(-310, 0, -230, 1);
+        cekTabrakan(pine3x, &buildings);
+        Pine pine4x(-295, 0, -250, 2);
+        cekTabrakan(pine4x, &buildings);
+        Pine pine5x(-315, 0, -250, 2);
+        cekTabrakan(pine5x, &buildings);
+
+        Bangunan1 bang2x(-270, 10, -160, 25,0.2,0.35,0.5, 2);
+        cekTabrakan (bang2x, &buildings);
+        Pine pine6x(-290, 0, -150, 1);
+        cekTabrakan(pine6x, &buildings);
+        Pine pine7x(-300, 0, -150, 1);
+        cekTabrakan(pine7x, &buildings);
+        Pine pine8x(-310, 0, -150, 1);
+        cekTabrakan(pine8x, &buildings);
+        Pine pine9x(-295, 0, -170, 2);
+        cekTabrakan(pine9x, &buildings);
+        Pine pine10x(-315, 0, -170, 2);
+        cekTabrakan(pine10x, &buildings);
+
+        Bangunan1 bang3x(-300, 10, -125, 25,0.7,0.1,0.5, 2);
+        cekTabrakan (bang3x, &buildings);
+        Pine pine11x(-290, 0, -80, 1);
+        cekTabrakan(pine11x, &buildings);
+        Pine pine12x(-300, 0, -80, 1);
+        cekTabrakan(pine12x, &buildings);
+        Pine pine13x(-310, 0, -80, 1);
+        cekTabrakan(pine13x, &buildings);
+        Pine pine14x(-295, 0, -100, 2);
+        cekTabrakan(pine14x, &buildings);
+        Pine pine15x(-315, 0, -100, 2);
+        cekTabrakan(pine15x, &buildings);
+
+        Bangunan1 bang4x(-300, 10, -60, 25,0.2,0.15,0.9, 1);
+        cekTabrakan (bang4x, &buildings);
+        Pine pine16x(-290, 0, -10, 1);
+        cekTabrakan(pine16x, &buildings);
+        Pine pine17x(-300, 0, -10, 1);
+        cekTabrakan(pine17x, &buildings);
+        Pine pine18x(-310, 0, -10, 1);
+        cekTabrakan(pine18x, &buildings);
+        Pine pine19x(-295, 0, -30, 2);
+        cekTabrakan(pine19x, &buildings);
+        Pine pine20x(-315, 0, -30, 2);
+        cekTabrakan(pine20x, &buildings);
+
+        Bangunan1 bang5x(-300, 10, 10, 25,0.1,0.15,0.5, 1);
+        cekTabrakan (bang5x, &buildings);
+        Pine pine21x(-290, 0, 60, 1);
+        cekTabrakan(pine21x, &buildings);
+        Pine pine22x(-300, 0, 60, 1);
+        cekTabrakan(pine22x, &buildings);
+        Pine pine23x(-310, 0, 60, 1);
+        cekTabrakan(pine23x, &buildings);
+        Pine pine24x(-295, 0, 40, 2);
+        cekTabrakan(pine24x, &buildings);
+        Pine pine25x(-315, 0, 40, 2);
+        cekTabrakan(pine25x, &buildings);
+
+        Bangunan1 bang6x(-300, 10, 80, 25,0.8,0.15,0.15, 2);
+        cekTabrakan (bang6x, &buildings);
+        Pine pine26x(-290, 0, 130, 1);
+        cekTabrakan(pine26x, &buildings);
+        Pine pine27x(-300, 0, 130, 1);
+        cekTabrakan(pine27x, &buildings);
+        Pine pine28x(-310, 0, 130, 1);
+        cekTabrakan(pine28x, &buildings);
+        Pine pine29x(-295, 0, 110, 2);
+        cekTabrakan(pine29x, &buildings);
+        Pine pine30x(-315, 0, 110, 2);
+        cekTabrakan(pine30x, &buildings);
+
+        Bangunan1 bang7x(-300, 10, 150, 25,0.1,0.21,0.7, 1);
+        cekTabrakan (bang7x, &buildings);
+        Pine pine31x(-290, 0, 200, 1);
+        cekTabrakan(pine31x, &buildings);
+        Pine pine32x(-300, 0, 200, 1);
+        cekTabrakan(pine32x, &buildings);
+        Pine pine33x(-310, 0, 200, 1);
+        cekTabrakan(pine33x, &buildings);
+        Pine pine34x(-295, 0, 180, 2);
+        cekTabrakan(pine34x, &buildings);
+        Pine pine35x(-315, 0, 180, 2);
+        cekTabrakan(pine35x, &buildings);
+
+        Bangunan1 bang8x(-300, 10, 220, 25,0.1,0.21,0.3, 1);
+        cekTabrakan (bang8x, &buildings);
+        Pine pine36x(-290, 0, 270, 1);
+        cekTabrakan(pine36x, &buildings);
+        Pine pine37x(-300, 0, 270, 1);
+        cekTabrakan(pine37x, &buildings);
+        Pine pine38x(-310, 0, 270, 1);
+        cekTabrakan(pine38x, &buildings);
+        Pine pine39x(-295, 0, 250, 2);
+        cekTabrakan(pine39x, &buildings);
+        Pine pine40x(-315, 0, 250, 2);
+        cekTabrakan(pine40x, &buildings);
+
+        Bangunan1 bang9x(-300, 10, 290, 25,0.9,0.25,0.8, 1);
+        cekTabrakan (bang9x, &buildings);
+        Pine pine41x(-290, 0, 340, 1);
+        cekTabrakan(pine41x, &buildings);
+        Pine pine42x(-300, 0, 340, 1);
+        cekTabrakan(pine42x, &buildings);
+        Pine pine43x(-310, 0, 340, 1);
+        cekTabrakan(pine43x, &buildings);
+        Pine pine44x(-295, 0, 320, 2);
+        cekTabrakan(pine44x, &buildings);
+        Pine pine45x(-315, 0, 320, 2);
+        cekTabrakan(pine45x, &buildings);
+
+        Bangunan1 bang10x(-300, 10, 360, 25,0.3,0.35,0.5, 1);
+        cekTabrakan (bang10x, &buildings);
+        Bangunan1 bang11x(-300, 10, 440, 25,0.45,0.15,0.5, 2);
+        cekTabrakan (bang11x, &buildings);
+
+        Batu rock12x(-70,0,360,10,0.4,0.4,0.4);
+        cekTabrakan (rock12x, &buildings);
+
+        Bangunan1 bang12x(-380, 10, -365, 25,0.3,0.75,0.15, 1);
+        cekTabrakan (bang12x, &buildings);
+        Pohon pohon1x(-380, 0, -345,1);
+        cekTabrakan(pohon1x, &buildings);
+        Pohon pohon2x(-370,0,-345,1);
+        cekTabrakan(pohon2x, &buildings);
+
+        Bangunan1 bang13x(-380, 10, -325, 25,0.1,0.75,0.1, 1);
+        cekTabrakan (bang13x, &buildings);
+        Pohon pohon3x(-380, 0, -305,1);
+        cekTabrakan(pohon3x, &buildings);
+        Pohon pohon4x(-370,0,-305,1);
+        cekTabrakan(pohon4x, &buildings);
+
+        Bangunan1 bang14x(-380, 10, -285, 25,0.1,0.85,0.15, 1);
+        cekTabrakan (bang14x, &buildings);
+        Pohon pohon5x(-380, 0, -265,1);
+        cekTabrakan(pohon5x, &buildings);
+        Pohon pohon6x(-370,0,-265,1);
+        cekTabrakan(pohon6x, &buildings);
+
+        Bangunan1 bang15x(-380, 10, -245, 25,0.1,0.15,0.9, 1);
+        cekTabrakan (bang15x, &buildings);
+        Pohon pohon7x(-380, 0, -225,1);
+        cekTabrakan(pohon7x, &buildings);
+        Pohon pohon8x(-370,0,-225,1);
+        cekTabrakan(pohon8x, &buildings);
+
+        Bangunan1 bang16x(-380, 10, -205, 25,0.8,0.85,0.5, 1);
+        cekTabrakan (bang16x, &buildings);
+        Pohon pohon9x(-380, 0, -185,1);
+        cekTabrakan(pohon9x, &buildings);
+        Pohon pohon10x(-370,0,-185,1);
+        cekTabrakan(pohon10x, &buildings);
+
+        Bangunan1 bang17x(-380, 10, -165, 25,0.95,0.25,0.5, 1);
+        cekTabrakan (bang17x, &buildings);
+        Pohon pohon11x(-380, 0, -145,1);
+        cekTabrakan(pohon11x, &buildings);
+        Pohon pohon12x(-370,0,-145,1);
+        cekTabrakan(pohon12x, &buildings);
+
+        Bangunan1 bang18x(-380, 10, -125, 25,0.15,0.95,0.4, 1);
+        cekTabrakan (bang18x, &buildings);
+        Pohon pohon13x(-380, 0, -105,1);
+        cekTabrakan(pohon13x, &buildings);
+        Pohon pohon14x(-370,0,-105,1);
+        cekTabrakan(pohon14x, &buildings);
+
+        Bangunan1 bang19x(-380, 10, -85, 25,0.2,0.15,0.51, 1);
+        cekTabrakan (bang19x, &buildings);
+        Pohon pohon15x(-380, 0, -65,1);
+        cekTabrakan(pohon15x, &buildings);
+        Pohon pohon16x(-370,0,-65,1);
+        cekTabrakan(pohon16x, &buildings);
+
+        Bangunan1 bang20x(-380, 10, -45, 25,0.5,0.25,0.5, 1);
+        cekTabrakan (bang20x, &buildings);
+        Pohon pohon17x(-380, 0, -25,1);
+        cekTabrakan(pohon17x, &buildings);
+        Pohon pohon18x(-370,0,-25,1);
+        cekTabrakan(pohon18x, &buildings);
+
+        Bangunan1 bang21x(-380, 10, -5, 25,0.5,0.25,0.5, 1);
+        cekTabrakan (bang21x, &buildings);
+        Pohon pohon19x(-380, 0, 15,1);
+        cekTabrakan(pohon19x, &buildings);
+        Pohon pohon20x(-370,0, 15,1);
+        cekTabrakan(pohon20x, &buildings);
+
+        Bangunan1 bang22x(-380, 10, 35, 25,0.5,0.25,0.5, 1);
+        cekTabrakan (bang22x, &buildings);
+        Pohon pohon21x(-380, 0, 55,1);
+        cekTabrakan(pohon21x, &buildings);
+        Pohon pohon22x(-370,0,55,1);
+        cekTabrakan(pohon22x, &buildings);
+
+        Bangunan1 bang23x(-380, 10, 75, 25,0.5,0.25,0.5, 1);
+        cekTabrakan (bang23x, &buildings);
+
+        Pohon pohon23x(-380, 0, 95,1);
+        cekTabrakan(pohon23x, &buildings);
+        Pohon pohon24x(-370,0,95,1);
+        cekTabrakan(pohon24x, &buildings);
+
+        Bangunan1 bang24x(-380, 10, 115, 25,0.5,0.25,0.5, 1);
+        cekTabrakan (bang24x, &buildings);
+        Pohon pohon25x(-380, 0, 135,1);
+        cekTabrakan(pohon25x, &buildings);
+        Pohon pohon26x(-370,0,135,1);
+        cekTabrakan(pohon26x, &buildings);
+
+        Bangunan1 bang25x(-380, 10, 155, 25,0.5,0.25,0.5, 1);
+        cekTabrakan (bang25x, &buildings);
+        Pohon pohon27x(-380, 0, 175,1);
+        cekTabrakan(pohon27x, &buildings);
+        Pohon pohon28x(-370,0,175,1);
+        cekTabrakan(pohon28x, &buildings);
+
+        Bangunan1 bang26x(-380, 10, 195, 25,0.5,0.25,0.5, 1);
+        cekTabrakan (bang26x, &buildings);
+        Pohon pohon29x(-380, 0, 215,1);
+        cekTabrakan(pohon29x, &buildings);
+        Pohon pohon30x(-370,0,215,1);
+        cekTabrakan(pohon30x, &buildings);
+
+        Bangunan1 bang27x(-380, 10, 235, 25,0.5,0.25,0.5, 1);
+        cekTabrakan (bang27x, &buildings);
+        Pohon pohon31x(-380, 0, 255,1);
+        cekTabrakan(pohon31x, &buildings);
+        Pohon pohon32x(-370,0,255,1);
+        cekTabrakan(pohon32x, &buildings);
+
+        Bangunan1 bang28x(-380, 10, 275, 25,0.5,0.25,0.5, 1);
+        cekTabrakan (bang28x, &buildings);
+        Pohon pohon33x(-380, 0, 295,1);
+        cekTabrakan(pohon33x, &buildings);
+        Pohon pohon34x(-370,0,295,1);
+        cekTabrakan(pohon34x, &buildings);
+
+        Bangunan1 bang29x(-380, 10, 315, 25,0.5,0.25,0.5, 1);
+        cekTabrakan (bang29x, &buildings);
+        Pohon pohon35x(-380, 0, 335,1);
+        cekTabrakan(pohon35x, &buildings);
+        Pohon pohon36x(-370,0,335,1);
+        cekTabrakan(pohon36x, &buildings);
+
+        Bangunan1 bang30x(-380, 10, 355, 25,0.5,0.25,0.5, 1);
+        cekTabrakan (bang30x, &buildings);
+
+        Lampu lampu16x(-23,0,-71,-90);
+        cekTabrakan(lampu16x, &buildings);
+
+        Pohon pohon37x(-31,0,375,1);
+        cekTabrakan(pohon37x, &buildings);
+        Pohon pohon38x(-41,0,375,1);
+        cekTabrakan(pohon38x, &buildings);
+        Pohon pohon39x(-51,0,375,1);
+        cekTabrakan(pohon39x, &buildings);
+        Pohon pohon40x(-61,0,375,1);
+        cekTabrakan(pohon40x, &buildings);
+        Pohon pohon41x(-71,0,375,1);
+        cekTabrakan(pohon41x, &buildings);
+
+        Bangunan1 bang31x(-90, 10, 360, 25,0.5,0.25,0.1, 1);
+        cekTabrakan (bang31x, &buildings);
+        Bangunan1 bang32x(-120, 10, 360, 25,0.5,0.25,0.4, 1);
+        cekTabrakan (bang32x, &buildings);
+        Bangunan1 bang33x(-150, 10, 360, 25,0.5,0.3,0.1, 2);
+        cekTabrakan (bang33x, &buildings);
+        Bangunan1 bang34x(-180, 10, 360, 25,0.1,0.3,0.1, 1);
+        cekTabrakan (bang34x, &buildings);
+        Bangunan1 bang35x(-210, 10, 360, 25,0.5,0.3,0.1, 1);
+        cekTabrakan (bang35x, &buildings);
+        Bangunan1 bang36x(-240, 10, 360, 25,0.5,0.1,0.1, 2);
+        cekTabrakan (bang36x, &buildings);
+        Bangunan1 bang37x(-270, 10, 360, 25,0.5,0.1,0.1, 2);
+        cekTabrakan (bang37x, &buildings);
+
+        Bangunan1 bang38x(-90, 10, 440, 25,0.5,0.25,0.1, 2);
+        cekTabrakan (bang38x, &buildings);
+        Bangunan1 bang39x(-120, 10, 440, 25,0.5,0.25,0.4, 1);
+        cekTabrakan (bang39x, &buildings);
+        Bangunan1 bang40x(-150, 10, 440, 25,0.5,0.3,0.1, 1);
+        cekTabrakan (bang40x, &buildings);
+        Bangunan1 bang41x(-180, 10, 440, 25,0.1,0.3,0.1, 2);
+        cekTabrakan (bang41x, &buildings);
+        Bangunan1 bang42x(-210, 10, 440, 25,0.5,0.3,0.1, 1);
+        cekTabrakan (bang42x, &buildings);
+        Bangunan1 bang43x(-240, 10, 440, 25,0.5,0.1,0.1, 1);
+        cekTabrakan (bang43x, &buildings);
+        Bangunan1 bang44x(-270, 10, 440, 25,0.2,0.4,0.1, 1);
+        cekTabrakan (bang44x, &buildings);
+        Bangunan1 bang45x(-60, 10, 440, 25,0.5,0.1,0.1, 1);
+        cekTabrakan (bang45x, &buildings);
+
+        Pohon pohon42x(-31,0,425,1);
+        cekTabrakan(pohon42x, &buildings);
+        Pohon pohon43x(-41,0,425,1);
+        cekTabrakan(pohon43x, &buildings);
+
         //2
         Batu rock1b(-50,20,300,50,0.4,0.4,0.4);
         cekTabrakan(rock1b, &buildings);
